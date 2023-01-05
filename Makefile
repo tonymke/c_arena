@@ -21,9 +21,9 @@ clean:
 	rm -rf $(patsubst %,%.dSYM,$(BINS))
 
 check: $(BINS)
-	$(foreach bin, $(BINS), ./$(bin);)
+	$(foreach bin, $(BINS), ./$(bin) $(CHECKFLAGS);)
 
 valgrind: $(BINS)
-	$(foreach bin, $(BINS), valgrind $(VALGRINDFLAGS) ./$(bin);)
+	$(foreach bin, $(BINS), valgrind $(VALGRINDFLAGS) ./$(bin) $(CHECKFLAGS);)
 
 c_arena: $(OBJS)
