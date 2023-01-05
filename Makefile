@@ -6,7 +6,9 @@ CFLAGS += `pkg-config --cflags $(LIBS)`
 LDFLAGS += `pkg-config --libs $(LIBS)`
 endif
 
-.PHONY: all check clean
+VALGRINDFLAGS += --error-exitcode=255 --tool=memcheck --leak-check=full
+
+.PHONY: all check clean valgrind
 
 BINS := c_arena
 SRC := c_arena.c
@@ -19,6 +21,9 @@ clean:
 	rm -rf $(patsubst %,%.dSYM,$(BINS))
 
 check: $(BINS)
-	./c_arena
+	$(foreach bin, $(BINS), ./$(bin);)
+
+valgrind: $(BINS)
+	$(foreach bin, $(BINS), valgrind $(VALGRINDFLAGS) ./$(bin);)
 
 c_arena: $(OBJS)
