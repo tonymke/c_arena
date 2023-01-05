@@ -1,7 +1,10 @@
 CFLAGS = -g -Og -std=c99 -Wall -Wextra -Werror -pedantic -pedantic-errors
-# CFLAGS += `pkg-config --cflags glib-2.0`
+# LIBS += glib-2.0
 
-# LDFLAGS += `pkg-config --libs glib-2.0`
+ifdef LIBS
+CFLAGS += `pkg-config --cflags $(LIBS)`
+LDFLAGS += `pkg-config --libs $(LIBS)`
+endif
 
 .PHONY: all check clean
 
