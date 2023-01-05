@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+CFLAGS=""
+CFLAGS="${CFLAGS} -std=c90"
+CFLAGS="${CFLAGS} -g"
+CFLAGS="${CFLAGS} -Og"
+CFLAGS="${CFLAGS} -pedantic"
+CFLAGS="${CFLAGS} -pedantic-errors"
+CFLAGS="${CFLAGS} -Wall"
+CFLAGS="${CFLAGS} -Wextra"
+CFLAGS="${CFLAGS} -Werror"
+export CFLAGS
+
+exec ./configure "$@"
