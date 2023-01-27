@@ -12,5 +12,4 @@ CFLAGS="${CFLAGS} -Werror"
 export CFLAGS
 
 cd `dirname $0`
-[ ! -f "./configure" ] && autoreconf -fi
 exec "./configure" "$@"
