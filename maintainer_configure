@@ -11,4 +11,5 @@ CFLAGS="${CFLAGS} -Wextra"
 CFLAGS="${CFLAGS} -Werror"
 export CFLAGS
 
-exec ./configure "$@"
+cd `dirname $0`
+exec "./configure" "$@"
