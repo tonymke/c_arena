@@ -5,7 +5,6 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include <config.h>
 #include "c_arena.h"
 
 int
