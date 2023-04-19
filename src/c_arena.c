@@ -2,8 +2,12 @@
 #define _ISOC99_SOURCE
 #endif  /* _ISOC99_SOURCE */
 
-int
+#include <stdbool.h>
+
+#include "c_arena.h"
+
+bool
 c_arena (void)
 {
-	return 1;
+	return true;
 }
