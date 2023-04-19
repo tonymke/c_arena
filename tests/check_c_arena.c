@@ -1,7 +1,3 @@
-#ifndef _ISOC99_SOURCE
-#define _ISOC99_SOURCE
-#endif  /* _ISOC99_SOURCE */
-
 #ifdef NDEBUG
 #error "NDEBUG cannot be on"
 #endif /* NDEBUG */
