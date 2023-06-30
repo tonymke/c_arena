@@ -2,7 +2,8 @@
 
 CFLAGS ?= -Wall -Wextra -Werror
 
-SRC := $(wildcard *.c) $(wildcard *.h)
+SRC := $(wildcard *.c)
+HEADER := $(wildcard *.h)
 OBJ := $(patsubst %.c,%.o,$(SRC))
 BINS := c_arena
 
@@ -11,7 +12,7 @@ all: $(BINS)
 clean:
 	$(RM) $(OBJ) $(BINS)
 
-$(OBJ): $(SRC)
+$(OBJ): $(SRC) $(HEADER)
 
 $(BINS): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
