@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CFLAGS ?= -Wall -Wextra -Werror
+CFLAGS ?= -g -Og -Wall -Wextra -Werror
 
 SRC := $(wildcard *.c)
 HEADER := $(wildcard *.h)
