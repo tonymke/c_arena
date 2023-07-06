@@ -1,18 +1,21 @@
-.PHONY: all clean
+.PHONY: all check clean
 
 CFLAGS ?= -g -Og -Wall -Wextra -Werror
 
 SRC := $(wildcard *.c)
 HEADER := $(wildcard *.h)
 OBJ := $(patsubst %.c,%.o,$(SRC))
-BINS := c_arena
+BIN := c_arena
 
-all: $(BINS)
+all: $(BIN)
+
+check: $(BIN)
+	$(dir $<)$(notdir $<)
 
 clean:
-	$(RM) $(OBJ) $(BINS)
+	$(RM) $(OBJ) $(BIN)
 
 $(OBJ): $(SRC) $(HEADER)
 
-$(BINS): $(OBJ)
+$(BIN): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
