@@ -10,7 +10,7 @@ BIN := c_arena
 all: $(BIN)
 
 check: $(BIN)
-	$(dir $<)$(notdir $<)
+	$(dir $<)$(notdir $<) $(CHECKFLAGS)
 
 clean:
 	$(RM) $(OBJ) $(BIN)
