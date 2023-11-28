@@ -10,10 +10,10 @@ RM ?= rm -f  # not defined in POSIX make
 all: $(BIN)
 
 check: $(BIN)
-	$(PWD)/$(BIN) $(CHECKFLAGS)
+	./$(BIN) $(CHECKFLAGS)
 
 clean:
-	$(RM) $(OBJ) $(BIN)
+	$(RM) $(BIN)
 
-$(BIN): $(SRC) $(HEADER)
+$(BIN): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $@ $(LDFLAGS) $(LDLIBS)
