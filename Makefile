@@ -2,20 +2,18 @@
 
 CFLAGS ?= -g -Og -Wall -Wextra -Werror
 
-SRC := $(wildcard *.c)
-HEADER := $(wildcard *.h)
-OBJ := $(patsubst %.c,%.o,$(SRC))
-BIN := c_arena
+SRC = main.c
+BIN = c_arena
+
+RM ?= rm -f  # not defined in POSIX make
 
 all: $(BIN)
 
 check: $(BIN)
-	$(dir $<)$(notdir $<) $(CHECKFLAGS)
+	$(PWD)/$(BIN) $(CHECKFLAGS)
 
 clean:
 	$(RM) $(OBJ) $(BIN)
 
-$(OBJ): $(SRC) $(HEADER)
-
-$(BIN): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+$(BIN): $(SRC) $(HEADER)
+	$(CC) $(CFLAGS) $(SRC) -o $@ $(LDFLAGS) $(LDLIBS)
