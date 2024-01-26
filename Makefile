@@ -1,6 +1,6 @@
 .PHONY: all check clean
 
-CFLAGS ?= -g -Og -Wall -Wextra -Werror
+CFLAGS ?= -g -Og -Wall -Wextra -Werror -Wfatal-errors
 
 SRC = main.c
 BIN = c_arena
