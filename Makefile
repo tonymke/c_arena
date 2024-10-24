@@ -3,7 +3,7 @@
 CFLAGS ?= -std=c99 -g -Og -Wall -Wextra -Werror -Wfatal-errors -pedantic \
 		  -pedantic-errors
 
-SRC = main.c
+SRC = $(wildcard *.c)
 BIN = arena
 
 RM ?= rm -f  # not defined in POSIX make
