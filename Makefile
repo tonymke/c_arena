@@ -3,7 +3,7 @@
 CFLAGS ?= -g -Og -Wall -Wextra -Werror -Wfatal-errors
 
 SRC = main.c
-BIN = c_arena
+BIN = arena
 
 RM ?= rm -f  # not defined in POSIX make
 
