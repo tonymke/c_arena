@@ -1,7 +1,7 @@
 .PHONY: all check clean
 
-CFLAGS ?= -std=c99 -g -Og -Wall -Wextra -Werror -Wfatal-errors -pedantic \
-		  -pedantic-errors
+CFLAGS ?= -Og -g -pedantic -pedantic-errors -std=c99 -Wall -Werror -Wextra \
+		  -Wfatal-errors -Wno-error=unused-parameter
 
 SRC = $(wildcard *.c)
 BIN = arena
