@@ -6,8 +6,6 @@ CFLAGS ?= -Og -g -pedantic -std=c99 -Wall -Werror -Wextra -Wfatal-errors \
 SRC = $(wildcard *.c)
 BIN = arena
 
-RM ?= rm -f  # not defined in POSIX make
-
 all: $(BIN)
 
 check: $(BIN)
