@@ -4,7 +4,7 @@ CFLAGS ?= -Og -g -pedantic -std=c99 -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
 
 PKG_CONFIG_LIBS ?=
-CFLAGS += $(if $(tPKG_CONFIG_LIBS), \
+CFLAGS += $(if $(PKG_CONFIG_LIBS), \
 		  $(shell pkg-config --cflags $(PKG_CONFIG_LIBS)),\
 		  )
 LDLIBS += $(if $(PKG_CONFIG_LIBS), \
