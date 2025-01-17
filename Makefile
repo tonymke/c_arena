@@ -1,6 +1,6 @@
 .PHONY: all check clean
 
-CFLAGS ?= -Og -g -pedantic -std=c99 -Wall -Werror -Wextra -Wfatal-errors \
+CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
 
 PKG_CONFIG_LIBS ?=
