@@ -1,4 +1,4 @@
-.PHONY: all check clean
+.PHONY: all check clean lint
 
 CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
@@ -24,6 +24,9 @@ check: $(BIN)
 
 clean:
 	$(RM) $(BIN)
+
+lint:
+	cppcheck --enable=all --inconclusive --language=c --suppress=missingIncludeSystem --quiet $(SRC)
 
 $(BIN): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $@ $(LDFLAGS) $(LDLIBS)
