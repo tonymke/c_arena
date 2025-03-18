@@ -2,7 +2,6 @@
 
 CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
-CFLAGS += -I$(SRCDIR) $(if $(wildcard include),-Iinclude)
 
 PKG_CONFIG_LIBS ?=
 CFLAGS += $(if $(PKG_CONFIG_LIBS), \
@@ -15,25 +14,22 @@ LDFLAGS += $(if $(PKG_CONFIG_LIBS), \
 		   $(shell pkg-config --libs-only-L --libs-only-other $(PKG_CONFIG_LIBS)), \
 		   )
 
-SRCDIR = src
-DISTDIR = dist
-SRC = $(wildcard $(SRCDIR)/*.c)
-HEADERS = $(wildcard $(SRCDIR)/*.h) $(wildcard include/*.h)
-BIN = $(DISTDIR)/arena
+export CFLAGS
+export CHECKFLAGS
+export LDFLAGS
+export LDLIBS
 
-all: $(BIN)
+all:
+	$(MAKE) -C src all
 
-check: $(BIN)
-	$(foreach bin,$^,$(CURDIR)/$(bin) $(CHECKFLAGS);)
+check:
+	$(MAKE) -C src check
 
 clean:
-	$(RM) -rf $(DISTDIR)
+	$(MAKE) -C src clean
 
 lint:
-	cppcheck --enable=all --inconclusive --language=c --suppress=missingIncludeSystem --quiet $(SRC)
+	$(MAKE) -C src lint
 
-$(BIN): $(SRC) $(HEADERS) | $(DISTDIR)
-	$(CC) $(CFLAGS) $(SRC) -o $@ $(LDFLAGS) $(LDLIBS)
-
-$(DISTDIR):
-	mkdir -p $@
+src/%:
+	$(MAKE) -C src $(patsubst src/%,%,$@)
