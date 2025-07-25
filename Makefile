@@ -3,6 +3,8 @@
 CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
 
+-include Makefile.local
+
 PKG_CONFIG_LIBS ?=
 CFLAGS += $(if $(PKG_CONFIG_LIBS), \
 		  $(shell pkg-config --cflags $(PKG_CONFIG_LIBS)),\

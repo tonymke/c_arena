@@ -1,3 +1,4 @@
 arena
 *.o
 *.dSYM/
+Makefile.local

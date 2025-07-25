@@ -1,5 +1,7 @@
 .PHONY: all check clean lint
 
+-include Makefile.local
+
 SRC := $(wildcard *.c)
 HEADER := $(wildcard *.h)
 OBJ := $(SRC:%.c=%.o)
