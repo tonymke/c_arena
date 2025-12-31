@@ -1,12 +1,11 @@
-# c_arena
+# c\_arena
 
 Arenas are my repositories of ready-to-go, fully bootstrapped and configured to
 my taste spaces for playing around with ideas in a particular language.
 
 This is the one for C.
 
-License
--------
+## License
 
 [MIT No Attribution](https://spdx.org/licenses/MIT-0.html) (SPDX: `MIT-0`)
 
