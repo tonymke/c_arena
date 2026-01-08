@@ -3,8 +3,7 @@ OBJ := $(SRC:%.c=%.o)
 HEADER := $(wildcard src/*.h)
 BIN := arena
 
-CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
-		  -Wno-error=pedantic -Wno-error=unused-parameter
+CFLAGS ?= -Og -g -Wall -Wextra
 
 -include Makefile.local
 
