@@ -1,4 +1,7 @@
-.PHONY: all check clean lint
+SRC := $(wildcard src/*.c)
+OBJ := $(SRC:%.c=%.o)
+HEADER := $(wildcard src/*.h)
+BIN := arena
 
 CFLAGS ?= -Og -g -pedantic -Wall -Werror -Wextra -Wfatal-errors \
 		  -Wno-error=pedantic -Wno-error=unused-parameter
@@ -21,17 +24,16 @@ export CHECKFLAGS
 export LDFLAGS
 export LDLIBS
 
-all:
-	$(MAKE) -C src all
+.PHONY: all
+all: $(BIN)
 
-check:
-	$(MAKE) -C src check
+.PHONY: check
+check: $(BIN)
+	$(realpath $(BIN))
 
+.PHONY: clean
 clean:
-	$(MAKE) -C src clean
+	$(RM) $(BIN)
 
-lint:
-	$(MAKE) -C src lint
-
-src/%:
-	$(MAKE) -C src $(patsubst src/%,%,$@)
+$(BIN): $(SRC) $(HEADER)
+	$(CC) $(CFLAGS) -o $@ $(SRC) $(LDFLAGS) $(LDLIBS)
