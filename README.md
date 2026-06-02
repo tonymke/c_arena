@@ -5,6 +5,24 @@ my taste spaces for playing around with ideas in a particular language.
 
 This is the one for C.
 
+## Setup
+
+`c_arena` uses autotools for builds. You will thus need autoconf and automake
+installed.
+
+```sh
+# Generate `./configure` and install any supporting material
+# These are all gitignored.
+autoreconf -i
+
+# Configure with maintainer-oriented settings
+./configure "CFLAGS=-std=gnu23 -Wall -Wextra -Werror"
+
+# Build and run
+make
+src/arena
+```
+
 ## License
 
 [MIT No Attribution](https://spdx.org/licenses/MIT-0.html) (SPDX: `MIT-0`)
